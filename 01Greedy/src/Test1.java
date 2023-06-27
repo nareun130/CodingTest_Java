@@ -38,6 +38,7 @@ public class Test1 {
 		result += (m - count) * second;// 두 번째로 큰 수 더하기
 
 		System.out.println(result);
+		sc.close();
 		
 	}
 }
