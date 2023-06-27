@@ -9,6 +9,7 @@ public class Intro1 {
 	 * 입력조건 : N(1~100), 이동횟수(1~100)
 	 * 
 	 * 출력 조건 A가 최종적으로 도착할 지점의 좌표 (X,Y) 출력
+	 * 
 	 */
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
