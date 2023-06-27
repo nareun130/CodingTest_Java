@@ -16,7 +16,8 @@ public class Intro {
 			int coin = coinTypes[i];
 			count += n / coin;
 			n %= coin;
-		}
+		} 
+		
 		System.out.println(count);
 	}
 }
