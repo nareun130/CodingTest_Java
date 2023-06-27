@@ -1,7 +1,7 @@
 
 public class Test {
 	public static void main(String[] args) {
-		int[] arr = new int[10000];
+		int[] arr = new int[4];
 
 		// 1~100사이의 임의의 숫자로 배열 채우기
 		for (int i = 0; i < arr.length; i++) {
@@ -13,10 +13,9 @@ public class Test {
 		sortArr(arr);
 		callArr(arr);
 
-		System.out.println();
-		System.out.println("끝");
 	}
 
+	//배열의 값들을 확인하는 함수
 	private static void callArr(int[] arr) {
 
 		for (int c : arr) {
@@ -28,8 +27,9 @@ public class Test {
 	private static void sortArr(int[] arr) {
 
 		for (int i = 0; i < arr.length; i++) {
+			//최솟값의 인덱스
 			int min_index = i;
-
+			
 			for (int j = i + 1; j < arr.length; j++) {
 				if (arr[min_index] > arr[j]) {
 					min_index = j;
@@ -41,7 +41,9 @@ public class Test {
 		}
 	}
 
+	//배열의 두개 요소를 바꿔주는 함수
 	private static void swap(int[] arr, int a, int b) {
+		//최솟값을 임시로 저장
 		int temp = arr[a];
 		arr[a] = arr[b];
 		arr[b] = temp;
