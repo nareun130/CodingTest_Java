@@ -29,12 +29,15 @@ public class Test1 {
 
 		// 가장 큰 수가 더해지는 횟수 계산
 		int count = (m / (k + 1)) * k;// (6+6+6+5) + (6+6+6+5) -> (8/(3+1)) * 3; -> 2 * 3
-		count += m % (k + 1); // 8 % (3+1) -> 2
+		
+		//M이 (K+1)로 나누어 떨어지지 않는 경우도 고려
+		count += m % (k + 1); // 8 % (3+1) -> 2 -> 
 
 		int result = 0;
 		result += count * first;// 가장 큰 수 더하기
 		result += (m - count) * second;// 두 번째로 큰 수 더하기
 
 		System.out.println(result);
+		
 	}
 }
