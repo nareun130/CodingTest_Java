@@ -20,9 +20,9 @@ public class Intro1 {
 		String[] plans = sc.nextLine().split(" ");// R R R U D D
 		int x = 1, y = 1; // 시작점
 
-		// L, R, U, D에 따른 이동 방향
-		int[] dx = { 0, 0, -1, 1 };
+		// L, R, U, D에 따른 이동 방향 -> 행과 열로 접근하기 때문에 dy, dx의 값이 반대
 		int[] dy = { -1, 1, 0, 0 };
+		int[] dx = { 0, 0, -1, 1 };
 
 		char[] moveTypes = { 'L', 'R', 'U', 'D' };
 
@@ -34,7 +34,7 @@ public class Intro1 {
 			// 이동 후 좌표 구하기
 			int nx = -1, ny = -1;
 
-			for (int j = 0; j < 4; j++) {
+			for (int j = 0; j < moveTypes.length; j++) {
 				if (plan == moveTypes[j]) {
 					nx = x + dx[j];
 					ny = y + dy[j];
