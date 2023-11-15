@@ -37,9 +37,36 @@ public class GameDevelop {
 
 	// 왼쪽으로 회전
 	public static void turnLeft() {
+
 		direction -= 1;
 		if (direction == -1) // 북-> 서
 			direction = 3;
+
+		char charDirection = getDirection(direction);
+		System.out.printf("좌향 좌! 현재 좌표 x : %d, y : %d, 현재 방향 : %c\n", x, y, charDirection);
+	}
+
+	public static char getDirection(int direction) {
+		char result;
+		switch (direction) {
+		case 0:
+			result = '북';
+			break;
+		case 1:
+			result = '동';
+			break;
+		case 2:
+			result = '남';
+			break;
+		case 3:
+			result = '서';
+			break;
+		default:
+			result = '북';
+
+		}
+		return result;
+
 	}
 
 	public static void main(String[] args) {
@@ -60,7 +87,7 @@ public class GameDevelop {
 				arr[i][j] = sc.nextInt();
 			}
 		}
-		// 시뮬레이션 시작
+
 		int count = 1;
 		int turnTime = 0;
 		while (true) {
@@ -71,29 +98,35 @@ public class GameDevelop {
 
 			// 회전한 후 정면에 가보지 않은 칸이 존재하면 이동
 			if (d[nx][ny] == 0 && arr[nx][ny] == 0) {
+				System.out.println("***이동***");
 				d[nx][ny] = 1;
 				x = nx;
 				y = ny;
 				count += 1;
+				System.out.printf("현재 턴 수 : %s, 방문한 칸 수 : %d\n", turnTime, count);
 				turnTime = 0;
 				continue;
 			} // 회전한 이후 정면에 가보지 않은 칸이 없거나 바다인 경우
 			else {
+				System.out.println("정면에 가보지 않은 칸이 없거나 바다임. ");
 				turnTime += 1;
 			}
 			// 네 방향 모두 갈 수 없는 경우
 			if (turnTime == 4) {
+				System.out.println("네 방향 모두 갈 수 없음 ");
 				nx = x - dx[direction];
 				ny = y - dy[direction];
 
 				// 뒤로 갈 수 있으면 이동
 				if (arr[nx][ny] == 0) {
+					System.out.println("뒤로 갈 수 있음.");
 					x = nx;
 					y = ny;
 				}
-				// 뒤가 바다로 막혀있는 경
+				// 뒤가 바다로 막혀있는 경우
 				else
 					break;
+//				System.out.println("뒤가 바다로 막혀 있음.");
 				turnTime = 0;
 			}
 
